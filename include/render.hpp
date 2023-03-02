@@ -1,8 +1,8 @@
 #pragma once
 
-#include "basis.h"
-#include "vector.h"
-#include "videoSettings.h"
+#include "basis.hpp"
+#include "vector.hpp"
+#include "videoSettings.hpp"
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include <iostream>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "videoSettings.h"
+#include "videoSettings.hpp"
 
 class Basis
 {

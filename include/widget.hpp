@@ -1,8 +1,7 @@
 #pragma once
 
-#include "render.h"
-#include "vec2.h"
-#include "vec3.h"
+#include "vec2.hpp"
+#include "vec3.hpp"
 #include <cmath>
 //#include "actionManager.h"
 

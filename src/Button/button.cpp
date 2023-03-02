@@ -1,5 +1,5 @@
-#include "button.h"
-#include "videoSettings.h"
+#include "button.hpp"
+#include "videoSettings.hpp"
 #include <cstdio>
 
 int Button::draw(uint32_t *PixelArr) const

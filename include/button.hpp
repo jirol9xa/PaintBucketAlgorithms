@@ -1,8 +1,8 @@
 #pragma once
 
-#include "actionManager.h"
-#include "render.h"
-#include "widget.h"
+#include "actionManager.hpp"
+#include "render.hpp"
+#include "widget.hpp"
 #include <iostream>
 
 class Button : public Widget

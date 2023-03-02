@@ -1,6 +1,6 @@
 #pragma once
 
-#include "basis.h"
+#include "basis.hpp"
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include <istream>

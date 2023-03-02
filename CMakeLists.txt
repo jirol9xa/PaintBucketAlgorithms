@@ -29,7 +29,7 @@ target_link_libraries(main src)
 
 find_program(CLANG_FORMAT "clang-format")
 if(CLANG_FORMAT)
-    file(GLOB_RECURSE 
+    file(GLOB_RECURSE ALL_CXX_SOURCE_FILES
         ${PROJECT_SOURCE_DIR}/*.[ch]pp
         ${PROJECT_SOURCE_DIR}/*.[ch]
     )

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "actionManager.h"
-#include "videoSettings.h"
-#include "widget.h"
+#include "actionManager.hpp"
+#include "videoSettings.hpp"
+#include "widget.hpp"
 #include <iostream>
 #include <utility>
 

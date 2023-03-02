@@ -1,4 +1,4 @@
-#include "actionManager.h"
+#include "actionManager.hpp"
 #include "vec2.h"
 
 int ActionManager::close()

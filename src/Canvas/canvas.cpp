@@ -1,4 +1,4 @@
-#include "canvas.h"
+#include "canvas.hpp"
 #include <iostream>
 
 int Canvas::onClick(Vec2 &pos, bool is_left)
