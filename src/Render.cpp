@@ -1,4 +1,4 @@
-#include "render.hpp"
+#include "Render.hpp"
 
 void Render::draw(Vector &vec) const
 {
@@ -14,11 +14,13 @@ void Render::draw(Vector &vec) const
 
 void Render::draw(const uint32_t *array) const
 {
+    assert(array != nullptr);
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
         window_->close();
 
     sf::Texture texture;
-    texture.create(Settings::Width, Settings::Heigth);
+    texture.create(Settings::width, Settings::heigth);
     sf::Sprite sprite(texture);
 
     texture.update((const uint8_t *)array);

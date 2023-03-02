@@ -1,7 +1,7 @@
 #pragma once
 
-#include "vec2.hpp"
-#include "vec3.hpp"
+#include "Vec2.hpp"
+#include "Vec3.hpp"
 #include <cmath>
 //#include "actionManager.h"
 
@@ -18,7 +18,6 @@ class Widget
     bool is_hit(Vec2 &pos) const
     {
         ssize_t x_cent = pos_.getX(), y_cent = pos_.getY(), x = pos.getX(), y = pos.getY();
-
         ssize_t delta_x = x - x_cent, delta_y = y - y_cent;
 
         return delta_x && delta_y && delta_x < width_ && delta_y < height_;

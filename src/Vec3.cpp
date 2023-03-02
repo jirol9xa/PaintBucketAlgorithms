@@ -1,4 +1,4 @@
-#include "vec3.hpp"
+#include "Vec3.hpp"
 #include <cmath>
 #include <iostream>
 #include <utility>

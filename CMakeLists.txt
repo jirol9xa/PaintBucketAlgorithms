@@ -13,8 +13,10 @@ if (${FORCE_COLORED_OUTPUT})
   endif ()
 endif ()
 
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -mavx2")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address,leak,undefined -Wall -Wextra -Wpedantic -g -O0")
+set(SFML_FLAGS "-lsfml-graphics -lsfml-window -lsfml-system")
+
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -mavx2 ${SFML_FLAGS}")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address,leak,undefined -Wall -Wextra -Wpedantic -g -O0 ${SFML_FLAGS}")
 
 set(MAIN_FILE main.cpp)
 set(SOURCE main.cpp)

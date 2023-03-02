@@ -1,5 +1,7 @@
-#include "actionManager.hpp"
-#include "vec2.h"
+#include "ActionManager.hpp"
+#include "Tool.hpp"
+#include "Vec2.hpp"
+#include <functional>
 
 int ActionManager::close()
 {
@@ -39,6 +41,7 @@ int ActionManager::onKey()
 
     return status;
 }
+
 int ActionManager::move(Vec2 &delta)
 {
     int status = STATUSES::NON_USED;
@@ -50,4 +53,34 @@ int ActionManager::move(Vec2 &delta)
     }
 
     return status;
+}
+
+void ActionManager::registerTool(Tool *tool)
+{
+    assert(tool != nullptr);
+
+    tools_arr_.push_back(tool);
+    tool->setMng(this);
+}
+
+void ActionManager::registerWidget(Widget *wid)
+{
+    assert(wid != nullptr);
+
+    wid_arr_.push_back(wid);
+    wid->setMng(this);
+}
+
+int ActionManager::draw(uint32_t *pixel_arr) const
+{
+    assert(pixel_arr != nullptr);
+
+    for (auto &&tool : tools_arr_)
+        if (tool->is_active())
+            tool->use(pixel_arr);
+
+    for (auto &&widget : wid_arr_)
+        widget->draw(pixel_arr);
+
+    return 0;
 }

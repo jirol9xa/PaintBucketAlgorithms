@@ -1,8 +1,8 @@
 #pragma once
 
-#include "actionManager.hpp"
-#include "videoSettings.hpp"
-#include "widget.hpp"
+#include "ActionManager.hpp"
+#include "VideoSettings.hpp"
+#include "Widget.hpp"
 #include <iostream>
 #include <utility>
 
@@ -11,9 +11,9 @@ class Canvas : public Widget
 {
   private:
     int draw(uint32_t *Pixels) const override;
-    int close() override{};
+    int close() override { return 0; };
     int onClick(Vec2 &pos, bool is_left) override;
-    int move(Vec2 &delta) override{};
+    int move(Vec2 &delta) override { return 0; };
     int onKey() override { return 0; };
 
     uint32_t *canvas_pixels_;
@@ -35,7 +35,7 @@ class Canvas : public Widget
             // Need make my own Exception Class
             std::cout << except.what() << std::endl;
             // FIXME: Make my own exception class
-            throw "Canvas Ctor error";
+            abort(); // throw "Canvas Ctor error";
         }
     }
 

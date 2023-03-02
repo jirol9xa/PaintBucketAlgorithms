@@ -1,15 +1,15 @@
-#include "vec2.hpp"
+#include "Vec2.hpp"
 #include <cmath>
 #include <iostream>
 #include <utility>
 
-size_t Vec2Kernel::setX(size_t x)
+int_fast32_t Vec2Kernel::setX(int_fast32_t x)
 {
     std::swap(x, x_);
     return x;
 }
 
-size_t Vec2Kernel::setY(size_t y)
+int_fast32_t Vec2Kernel::setY(int_fast32_t y)
 {
     std::swap(y, y_);
     return y;

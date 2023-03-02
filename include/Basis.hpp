@@ -1,6 +1,6 @@
 #pragma once
 
-#include "videoSettings.hpp"
+#include "VideoSettings.hpp"
 
 class Basis
 {
@@ -8,7 +8,7 @@ class Basis
     double x_, y_, z_, scale_;
 
   public:
-    Basis(double x = Settings::Width / 2, double y = Settings::Heigth / 2, double z = 0,
+    Basis(double x = Settings::width / 2, double y = Settings::heigth / 2, double z = 0,
           double scale = 50.0)
         : x_(x), y_(y), z_(z), scale_(scale)
     {
