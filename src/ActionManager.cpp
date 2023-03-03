@@ -93,10 +93,25 @@ int ActionManager::draw(uint32_t *pixel_arr) const
 
 int ActionManager::drawWithoutTools() const
 {
-    assert(pixels_ != nullptr);
+    assert(back_gr_ != nullptr);
+    assert(back_gr_->pixels_ != nullptr);
 
     for (auto &&widget : wid_arr_)
-        widget->draw(pixels_);
+        widget->draw(back_gr_->pixels_);
 
     return 0;
+}
+
+void ActionManager::registerView(Render *view)
+{
+    assert(view != nullptr);
+
+    view_ = view;
+}
+
+void ActionManager::registerBackground(Background *back_gr)
+{
+    assert(back_gr != nullptr);
+
+    back_gr_ = back_gr;
 }

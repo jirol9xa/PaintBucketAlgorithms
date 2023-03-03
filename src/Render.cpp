@@ -20,7 +20,7 @@ void Render::draw(const uint32_t *array) const
         window_->close();
 
     sf::Texture texture;
-    texture.create(Settings::width, Settings::heigth);
+    texture.create(Settings::width, Settings::height);
     sf::Sprite sprite(texture);
 
     texture.update((const uint8_t *)array);

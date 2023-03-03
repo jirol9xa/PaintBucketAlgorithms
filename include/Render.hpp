@@ -32,7 +32,7 @@ class Render : public IRender
     {
         try
         {
-            pixels_ = new uint32_t[Settings::width * Settings::heigth];
+            pixels_ = new uint32_t[Settings::width * Settings::height];
         }
         catch (std::bad_alloc &except)
         {
@@ -45,7 +45,7 @@ class Render : public IRender
     {
         try
         {
-            pixels_ = new uint32_t[Settings::width * Settings::heigth];
+            pixels_ = new uint32_t[Settings::width * Settings::height];
         }
         catch (std::bad_alloc &except)
         {

@@ -6,15 +6,21 @@
 #include <iostream>
 #include <utility>
 
+enum CANVAS_COLORS
+{
+    FRAME = 0xFF000000,
+};
+
 /// @brief Widget for canvas, where we can draw
 class Canvas : public Widget
 {
   private:
-    int draw(uint32_t *Pixels) const override;
-    int close() override { return 0; };
-    int onClick(Vec2 &pos, bool is_left) override;
-    int move(Vec2 &delta) override { return 0; };
-    int onKey() override { return 0; };
+    int  draw(uint32_t *Pixels) const override;
+    int  close() override { return 0; };
+    int  onClick(Vec2 &pos, bool is_left) override;
+    int  move(Vec2 &delta) override { return 0; };
+    int  onKey() override { return 0; };
+    void makeFrame();
 
     uint32_t *canvas_pixels_;
 
@@ -37,6 +43,8 @@ class Canvas : public Widget
             // FIXME: Make my own exception class
             abort(); // throw "Canvas Ctor error";
         }
+
+        makeFrame();
     }
 
     /// Return Vec2 {width, heigth}

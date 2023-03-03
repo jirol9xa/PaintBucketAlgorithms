@@ -11,16 +11,19 @@ int FillTool::use(u_int32_t *pixels, const Vec2 &size)
 
     int_fast32_t     width = size.getX(), height = size.getY();
     std::stack<Vec2> pix_stack;
+    uint32_t         fill_color = 0xFF000000 + color_.getAsColor();
 
     auto is_edge = [&](int_fast32_t x, int_fast32_t y)
     {
         if (x > width || y > height)
             return true;
 
-        return pixels[x + y * width] == COLORS::EDGE_COLOR;
+        return pixels[x + y * width] == FILL_TOOL_COLORS::EDGE_COLOR;
     };
 
-    int_fast32_t x = 300, y = 300;
+    Vec2 init_pos = requireMouseClick();
+
+    int_fast32_t x = init_pos.getX(), y = init_pos.getY();
     pix_stack.push({x, y});
 
     for (;;)
@@ -33,11 +36,11 @@ int FillTool::use(u_int32_t *pixels, const Vec2 &size)
         x = pix.getX(), y = pix.getY();
         pix_stack.pop();
 
-        if (pixels[x + y * width] == COLORS::FILL_COLOR)
+        if (pixels[x + y * width] == fill_color)
             continue;
 
         // Fill the pixel
-        pixels[x + y * width] = COLORS::FILL_COLOR;
+        pixels[x + y * width] = fill_color;
 
         // Add neighbors to the stack of pixels
         if (!is_edge(x + 1, y))

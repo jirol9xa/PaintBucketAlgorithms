@@ -51,3 +51,26 @@ int Canvas::draw(uint32_t *PixelArr) const
 
     return 0;
 }
+
+void Canvas::makeFrame()
+{
+    auto fillLine = [&](int_fast32_t line)
+    {
+        for (int_fast32_t i = 0; i < width_; ++i)
+            canvas_pixels_[i + line * width_] = CANVAS_COLORS::FRAME;
+    };
+    auto fillColumn = [&](int_fast32_t colomn)
+    {
+        for (int_fast32_t i = 0; i < height_; ++i)
+            canvas_pixels_[colomn + i * width_] = CANVAS_COLORS::FRAME;
+    };
+
+    for (int_fast32_t i = 0; i < 10; i++)
+    {
+        fillLine(i);
+        fillLine(height_ - 1 - i);
+
+        fillColumn(i);
+        fillColumn(width_ - 1 - i);
+    }
+}

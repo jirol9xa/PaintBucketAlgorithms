@@ -5,6 +5,7 @@
 #include "Widget.hpp"
 #include <functional>
 #include <iostream>
+#include <unistd.h>
 
 class Button : public Widget
 {
@@ -19,6 +20,7 @@ class Button : public Widget
   public:
     void press()
     {
+        sleep(1);
         std::cout << "Button Pressing\n";
 
         is_pressed_ = !is_pressed_;
