@@ -43,7 +43,7 @@ class Vec2
     int_fast32_t setY(int_fast32_t y) { return Kernel.setY(y); }
 
     friend Vec2          operator*(double coef, const Vec2 &vec);
-    friend std::ostream &operator<<(std::ostream &os, Vec2 &vec);
+    friend std::ostream &operator<<(std::ostream &os, const Vec2 &vec);
 
     const Vec2 &operator=(const Vec2 &&vec);
     const Vec2 &operator=(const Vec2 &vec);

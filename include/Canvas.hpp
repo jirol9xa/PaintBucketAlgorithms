@@ -39,5 +39,10 @@ class Canvas : public Widget
         }
     }
 
+    /// Return Vec2 {width, heigth}
+    inline Vec2 getSize() const { return Vec2(width_, height_); }
+    /// Return pixels array in canvas
+    uint32_t *getPixels() const { return canvas_pixels_; }
+
     ~Canvas() noexcept { delete[] canvas_pixels_; }
 };

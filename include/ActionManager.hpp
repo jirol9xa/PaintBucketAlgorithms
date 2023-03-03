@@ -22,6 +22,7 @@ class ActionManager : public Widget
     ActionManager(Render *view) : view_(view) {}
 
     int draw(uint32_t *pixel_arr) const override;
+    int drawWithoutTools() const;
     int close() override;
     int onClick(Vec2 &pos, bool is_left) override;
     int onKey() override;

@@ -3,24 +3,23 @@
 #include "Vec2.hpp"
 #include "Vec3.hpp"
 #include <cmath>
-//#include "actionManager.h"
 
 class ActionManager;
 
 class Widget
 {
   protected:
-    Vec2   pos_;
-    Vec3   color_;
-    size_t width_;
-    size_t height_;
+    Vec2         pos_;
+    Vec3         color_;
+    int_fast32_t width_;
+    int_fast32_t height_;
 
     bool is_hit(Vec2 &pos) const
     {
-        ssize_t x_cent = pos_.getX(), y_cent = pos_.getY(), x = pos.getX(), y = pos.getY();
-        ssize_t delta_x = x - x_cent, delta_y = y - y_cent;
+        int_fast32_t x_cent = pos_.getX(), y_cent = pos_.getY(), x = pos.getX(), y = pos.getY();
+        int_fast32_t delta_x = x - x_cent, delta_y = y - y_cent;
 
-        return delta_x && delta_y && delta_x < width_ && delta_y < height_;
+        return labs(delta_x) < width_ && labs(delta_y) < height_;
     }
 
     enum STATUSES
@@ -35,7 +34,8 @@ class Widget
     ActionManager *mng_ = nullptr;
 
   public:
-    Widget(Vec2 pos = {0, 0}, Vec3 color = {255, 255, 255}, size_t width = 30, size_t height = 30)
+    Widget(Vec2 pos = {0, 0}, Vec3 color = {255, 255, 255}, int_fast32_t width = 30,
+           int_fast32_t height = 30)
         : pos_(pos), color_(color), width_(width), height_(height)
     {
     }

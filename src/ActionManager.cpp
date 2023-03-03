@@ -1,4 +1,6 @@
 #include "ActionManager.hpp"
+#include "Button.hpp"
+#include "Canvas.hpp"
 #include "Tool.hpp"
 #include "Vec2.hpp"
 #include <functional>
@@ -77,10 +79,24 @@ int ActionManager::draw(uint32_t *pixel_arr) const
 
     for (auto &&tool : tools_arr_)
         if (tool->is_active())
-            tool->use(pixel_arr);
+        {
+            for (auto &&widget : wid_arr_)
+                if (Canvas *canv = dynamic_cast<Canvas *>(widget))
+                    tool->use(canv->getPixels(), canv->getSize());
+        }
 
     for (auto &&widget : wid_arr_)
         widget->draw(pixel_arr);
+
+    return 0;
+}
+
+int ActionManager::drawWithoutTools() const
+{
+    assert(pixels_ != nullptr);
+
+    for (auto &&widget : wid_arr_)
+        widget->draw(pixels_);
 
     return 0;
 }

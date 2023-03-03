@@ -15,7 +15,7 @@ int_fast32_t Vec2Kernel::setY(int_fast32_t y)
     return y;
 }
 
-std::ostream &operator<<(std::ostream &os, Vec2 &vec)
+std::ostream &operator<<(std::ostream &os, const Vec2 &vec)
 {
     os << "x = " << vec.getX() << ", y = " << vec.getY() << std::endl;
 

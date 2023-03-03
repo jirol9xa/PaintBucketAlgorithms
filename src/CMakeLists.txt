@@ -11,7 +11,8 @@ set(VEC2    Vec2.cpp)
 set(VEC3    Vec3.cpp)
 set(VECTOR  Vector.cpp)
 set(WIDGET  Widget.cpp)
+set(TOOL    FillToolc.cpp)
 
 add_library(src STATIC ActionManager.cpp Button.cpp Canvas.cpp 
                        Basis.cpp Render.cpp Vec2.cpp Vec3.cpp 
-                       Vector.cpp Widget.cpp)
+                       Vector.cpp Widget.cpp FillTool.cpp)

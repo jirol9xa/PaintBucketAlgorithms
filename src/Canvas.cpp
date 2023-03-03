@@ -26,24 +26,24 @@ int Canvas::onClick(Vec2 &pos, bool is_left)
         canvas_pixels_[x - i + (y - i) * width_] = 0xFF000000 + !is_left * 0x00FFFFFF;
     }
 
-    return 0;
+    return STATUSES::USED;
 }
 
 int Canvas::draw(uint32_t *PixelArr) const
 {
     assert(PixelArr != nullptr);
 
-    size_t x_start = pos_.getX(), y_start = pos_.getY();
+    int_fast32_t x_start = pos_.getX(), y_start = pos_.getY();
 
-    for (size_t height = 0; height < height_; ++height)
-        for (size_t width = 0; width < width_; ++width)
+    for (int_fast32_t height = 0; height < height_; ++height)
+        for (int_fast32_t width = 0; width < width_; ++width)
         {
             PixelArr[x_start + width + (y_start + height) * Settings::width] =
                 0xFF000000 + uint32_t(color_);
         }
 
-    for (int height = 0; height < height_ /*200*/; ++height)
-        for (int width = 0; width < width_ /*200*/; ++width)
+    for (int_fast32_t height = 0; height < height_; ++height)
+        for (int_fast32_t width = 0; width < width_; ++width)
         {
             PixelArr[x_start + width + (y_start + height) * Settings::width] =
                 canvas_pixels_[width + height * width_];

@@ -19,7 +19,10 @@ int Button::draw(uint32_t *PixelArr) const
 int Button::onClick(Vec2 &pos, bool is_left)
 {
     if (!is_hit(pos))
-        return -1; // FIXME: make norm err_code
+        return STATUSES::NON_USED; // FIXME: make norm err_code
 
-    is_pressed_ = is_left;
+    if (is_left)
+        press();
+
+    return STATUSES::USED;
 }

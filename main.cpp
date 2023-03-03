@@ -1,6 +1,7 @@
 #include "ActionManager.hpp"
 #include "Button.hpp"
 #include "Canvas.hpp"
+#include "FillToop.hpp"
 #include "Render.hpp"
 #include "VideoSettings.hpp"
 #include <SFML/Graphics.hpp>
@@ -18,13 +19,33 @@ int main()
     assert(display);
     Render render(&window);
 
-    Canvas canvas({0, 0}, {255, 255, 255}, width * 0.9, heigth * 0.9);
-    Button start_button({width - 50, heigth - 50}, {0, 0, 200});
+    Canvas   canvas({0, 0}, {255, 255, 255}, width * 0.9, heigth * 0.9);
+    Button   start_button({width - 50, heigth - 50}, {0, 0, 200});
+    FillTool fill;
 
-    mng.registerWidget(&canvas);
+    // Very bad move, but i don't know how to do it better yet
+    fill.setReqDrawFunc(
+        [&]()
+        {
+            // That part used for avoiding warning from linux about unused graphic window
+            sf::Event event;
+            while (window.pollEvent(event))
+                if (event.type == sf::Event::Closed)
+                    window.close();
+
+            mng.drawWithoutTools();
+            render.draw(display);
+            window.display();
+            window.clear();
+        });
+
+    start_button.connect([&]() -> bool { return fill.toggle(); });
+
     mng.registerWidget(&start_button);
+    mng.registerWidget(&canvas);
     mng.registerView(&render);
     mng.registerPixels(display);
+    mng.registerTool(&fill);
 
     while (window.isOpen())
     {
