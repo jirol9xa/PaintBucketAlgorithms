@@ -4,6 +4,13 @@
 #include "Vec3.hpp"
 #include <functional>
 
+/// Config list for filling and detecting colors in FillTool
+enum COLORS
+{
+    EDGE_COLOR = 0xFF000000,
+    FILL_COLOR = 0xFF000F0F,
+};
+
 /// Class for implementing PaintBucket logic
 class FillTool : public Tool
 {
