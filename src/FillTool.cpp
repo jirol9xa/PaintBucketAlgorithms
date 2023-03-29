@@ -7,8 +7,6 @@ int FillTool::use(u_int32_t *pixels, const Vec2 &size)
 {
     assert(pixels != nullptr);
 
-    std::cout << "here\n";
-
     int_fast32_t     width = size.getX(), height = size.getY();
     std::stack<Vec2> pix_stack;
     uint32_t         fill_color = 0xFF000000 + color_.getAsColor();

@@ -21,8 +21,6 @@ class Tool
 
     bool toggle()
     {
-        std::cout << "toggled\n";
-
         sleep(1);
         return is_active_ = !is_active_;
     }

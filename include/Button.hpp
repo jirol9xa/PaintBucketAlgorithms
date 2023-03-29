@@ -21,7 +21,6 @@ class Button : public Widget
     void press()
     {
         sleep(1);
-        std::cout << "Button Pressing\n";
 
         is_pressed_ = !is_pressed_;
         action_();
